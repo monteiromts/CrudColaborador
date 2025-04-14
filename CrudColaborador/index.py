@@ -4,11 +4,12 @@ import mysql.connector
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="123321",
-    database="escola"
+    password="123321"
 )
 
 cursor = mydb.cursor()
+cursor.execute("CREATE DATABASE IF NOT EXISTS escola")
+mydb.database = "escola"
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS NewColaborador (
         idUsuario INT AUTO_INCREMENT PRIMARY KEY,
